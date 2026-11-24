@@ -2,6 +2,8 @@
 
 Monitor de ventas y simulador de demanda para una cadena de supermercados ficticia. La aplicación permite revisar qué se vende y con qué margen, y estimar las unidades diarias para una decisión de precio o promoción.
 
+[Ver la presentación del portafolio en GitHub Pages](https://ingsamuell.github.io/retail-sales-forecast/)
+
 ## Qué puedes explorar
 
 - **Monitor de ventas.** Filtra por fechas, sucursal y categoría. Consulta ingresos netos, unidades vendidas, utilidad y margen bruto. Cuando existe cobertura completa, los KPI se comparan con el período inmediatamente anterior de igual duración.
