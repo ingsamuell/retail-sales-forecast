@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prueba el monitor de ventas y el simulador de demanda de Retail Sales Forecast en tu navegador.">
+  <meta name="theme-color" content="#122c2c">
+  <link rel="icon" type="image/svg+xml" href="icono.svg">
+  <link rel="stylesheet" href="estilos.css">
+  <script type="module" src="demo.js"></script>
+  <title>Demo interactiva · Retail Sales Forecast</title>
+</head>
+<body class="pagina-demo">
+  <a class="salto" href="#demo">Saltar a la demo</a>
+  <header class="cabecera">
+    <div class="contenido barra">
+      <a class="marca" href="./"><span aria-hidden="true">←</span> Volver al portafolio</a>
+      <a href="https://github.com/ingsamuell/retail-sales-forecast">Código en GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main class="contenido demo-contenido" id="demo" tabindex="-1">
+    <h1>Demo interactiva</h1>
+    <p class="bajada">Ventas sintéticas de una cadena de supermercados, 2024–2025.</p>
+    <p id="estado" role="status">Cargando los datos de la demo…</p>
+    <noscript><p>Activa JavaScript en tu navegador para usar la demo.</p></noscript>
+    <div id="interfaz" hidden>
+      <fieldset class="demo-modos">
+        <legend class="visualmente-oculto">Vista de la demo</legend>
+        <label><input type="radio" name="vista" value="monitor" checked> Monitor de ventas</label>
+        <label><input type="radio" name="vista" value="simulador"> Simulador de demanda</label>
+      </fieldset>
+
+      <section id="monitor" aria-labelledby="titulo-monitor">
+        <h2 id="titulo-monitor" class="visualmente-oculto">Monitor de ventas</h2>
+        <form id="filtros" class="demo-panel demo-campos">
+          <label>Desde<input name="desde" type="date" required></label>
+          <label>Hasta<input name="hasta" type="date" required></label>
+          <label>Sucursal<select name="sucursal"><option value="">Todas</option></select></label>
+          <label>Categoría<select name="categoria"><option value="">Todas</option></select></label>
+        </form>
+        <p id="estado-filtros" role="status" class="visualmente-oculto"></p>
+        <div id="kpi" class="demo-kpis"></div>
+        <div class="demo-graficos" id="graficos">
+          <section class="demo-panel">
+            <h3>Ingresos netos por día</h3>
+            <canvas id="tendencia" role="img" aria-label="Gráfico de ingresos diarios en dólares"></canvas>
+            <p id="resumen-tendencia" class="demo-nota"></p>
+          </section>
+          <section class="demo-panel">
+            <h3>Productos líderes</h3>
+            <ol id="productos-lideres" class="demo-ranking"></ol>
+          </section>
+        </div>
+        <div class="demo-exportar">
+          <button type="button" id="exportar">Descargar Excel</button>
+          <span id="estado-exportar" role="status" class="demo-nota"></span>
+        </div>
+      </section>
+
+      <section id="simulador" aria-labelledby="titulo-simulador" hidden>
+        <h2 id="titulo-simulador" class="visualmente-oculto">Simulador de demanda</h2>
+        <form id="escenario" class="demo-panel demo-campos">
+          <label>Sucursal<select name="sucursal"></select></label>
+          <label>Producto<select name="producto"></select></label>
+          <label>Fecha estimada<input name="fecha" type="date" required></label>
+          <label>Precio de lista (USD)<input name="precio" type="number" step="0.01" required></label>
+          <label>Descuento (<output id="valor-descuento" for="descuento-input">15 %</output>)
+            <input id="descuento-input" name="descuento" type="range" min="0" max="30" step="5" value="15">
+          </label>
+        </form>
+        <div id="resultado" class="demo-kpis demo-pronostico" aria-live="polite"></div>
+        <p id="estado-escenario" class="demo-nota" role="status"></p>
+        <section class="demo-panel">
+          <h3>Evaluación histórica</h3>
+          <p class="demo-nota">Últimas ocho semanas de 2025 · 5.600 observaciones.</p>
+          <table class="demo-metricas">
+            <thead><tr><th scope="col">Método</th><th scope="col">MAE</th><th scope="col">WAPE</th></tr></thead>
+            <tbody id="metricas"></tbody>
+          </table>
+        </section>
+      </section>
+
+      <p class="demo-nota demo-pie">Edición web basada en los datos de SQLite y los coeficientes del modelo entrenado en Python. Consulta la aplicación de Streamlit en el <a href="https://github.com/ingsamuell/retail-sales-forecast">repositorio</a>.</p>
+    </div>
+  </main>
+</body>
+</html>
