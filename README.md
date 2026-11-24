@@ -2,11 +2,11 @@
 
 Monitor de ventas y simulador de demanda para una cadena de supermercados ficticia. Analiza **73.100 registros sintéticos** de 5 sucursales y 20 productos durante 2024–2025.
 
-[Ver el portafolio](https://ingsamuell.github.io/retail-sales-forecast/)
+**[Probar la demo en el navegador](https://ingsamuell.github.io/retail-sales-forecast/demo.html)** · [Ver el portafolio](https://ingsamuell.github.io/retail-sales-forecast/)
 
 ## Qué puedes probar
 
-- **Monitor.** Filtra ventas por fecha, sucursal y categoría. Compara ingresos netos, unidades y margen bruto.
+- **Monitor.** Filtra ventas por fecha, sucursal y categoría. Consulta ingresos netos, unidades, utilidad y margen bruto.
 - **Simulador.** Explora cómo cambia la demanda estimada al ajustar el precio o el descuento de un producto.
 - **Excel.** Exporta el detalle filtrado y un resumen de indicadores.
 
