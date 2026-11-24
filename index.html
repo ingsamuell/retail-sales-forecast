@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de portafolio de analítica retail. Monitor de ventas en SQLite y simulador predictivo de demanda en Streamlit.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Retail Sales Forecast · Samuel Revollo">
+  <meta property="og:description" content="Un caso de analítica retail de punta a punta, desde 73.100 observaciones sintéticas hasta un simulador de demanda.">
+  <meta property="og:url" content="https://ingsamuell.github.io/retail-sales-forecast/">
+  <meta property="og:image" content="https://ingsamuell.github.io/retail-sales-forecast/monitor.png">
+  <meta property="og:image:alt" content="Monitor de ventas con indicadores de ingresos, unidades, utilidad y margen bruto.">
+  <meta name="theme-color" content="#122c2c">
+  <link rel="canonical" href="https://ingsamuell.github.io/retail-sales-forecast/">
+  <link rel="icon" type="image/svg+xml" href="icono.svg">
+  <title>Retail Sales Forecast · Samuel Revollo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenido barra">
+      <a class="marca" href="#inicio"><span class="marca-icono" aria-hidden="true">▥</span> Retail Sales Forecast</a>
+      <nav aria-label="Secciones">
+        <a href="#resultados">Resultados</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="https://github.com/ingsamuell/retail-sales-forecast">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="portada" id="inicio" aria-labelledby="titulo">
+      <div class="contenido portada-grid">
+        <div class="introduccion">
+          <p class="autor">Portafolio de datos · Samuel Revollo</p>
+          <h1 id="titulo">Ventas y demanda en supermercados</h1>
+          <p>Un caso de analítica retail que reúne un monitor de ventas y un simulador de precio y descuentos para una cadena ficticia.</p>
+          <div class="acciones">
+            <a class="boton primario" href="#proyecto">Explorar el proyecto</a>
+            <a class="boton secundario" href="https://github.com/ingsamuell/retail-sales-forecast">Ver código en GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="captura portada-captura">
+          <img src="monitor.png" width="1440" height="1050"
+               alt="Monitor de ventas con filtros, cuatro indicadores, una serie diaria de ingresos y un ranking de productos.">
+          <figcaption>Monitor de ventas en Streamlit</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="resultados" class="contenido seccion" aria-labelledby="resultados-titulo">
+      <h2 id="resultados-titulo">Resultados del caso</h2>
+      <p class="bajada">La simulación cubre 2024 y 2025, con 5 sucursales y 20 productos.</p>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Tamaño del dataset</h3>
+          <strong>73.100</strong>
+          <p>Observaciones diarias sintéticas por sucursal y producto.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Ingresos de 2025</h3>
+          <strong>+2,8 %</strong>
+          <p>El margen bruto cayó 1,53 puntos porcentuales respecto a 2024.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Error del modelo</h3>
+          <strong>17,72 %</strong>
+          <p>WAPE en las últimas ocho semanas, frente a 24,43 % de la mediana histórica.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proyecto" class="proyecto" aria-labelledby="proyecto-titulo">
+      <div class="contenido seccion proyecto-grid">
+        <div>
+          <h2 id="proyecto-titulo">Cómo funciona</h2>
+          <ol class="flujo">
+            <li><strong>Datos y SQL</strong><p>NumPy genera un panel reproducible. SQLite relaciona sucursales, productos y ventas. Las consultas calculan los indicadores con <code>JOIN</code> y <code>GROUP BY</code>.</p></li>
+            <li><strong>Visualización y Excel</strong><p>Streamlit presenta los filtros y gráficos de Matplotlib y Seaborn. El Excel reúne las filas filtradas y un resumen con indicadores.</p></li>
+            <li><strong>Predicción de demanda</strong><p>Una regresión de Poisson en scikit-learn permite comparar unidades estimadas para una misma fecha, sucursal y producto, con y sin descuento.</p></li>
+          </ol>
+          <a class="enlace" href="https://github.com/ingsamuell/retail-sales-forecast#ejecutar-en-linux">Ver cómo ejecutar la app <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="captura">
+          <img src="simulador.png" width="1440" height="1050" loading="lazy"
+               alt="Simulador de demanda con controles de fecha, sucursal, producto, precio y descuento, y dos estimaciones de unidades.">
+          <figcaption>Comparación de escenarios de precio y descuento</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contenido pie">
+    <p>Retail Sales Forecast · Samuel Revollo</p>
+    <a href="https://github.com/ingsamuell">Perfil de GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>
