@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+.env
+.streamlit/secrets.toml
+data/.generacion-*/
+data/retail.db-journal
+data/retail.db-shm
+data/retail.db-wal
